@@ -1,7 +1,7 @@
 # Todo List
 Minimalistic task tracker for activities and events with completion and starring functionality.
 
-![Todo App Screenshot](screenshots/todo_screenshot.png)
+![Todo App Screenshot](screenshots/todo.png)
 
 ## Tech Stack
 - React
