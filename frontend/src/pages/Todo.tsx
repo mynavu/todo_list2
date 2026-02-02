@@ -149,7 +149,7 @@ export default function Todo({setIsAuthenticated, isAuthenticated}: AuthProps) {
                                     {!todo.isCompleted && (
                                         <>
                                         {/* Square – default */}
-                                        <Square
+                                        <SquareCheck
                                             className="
                                             block
                                             text-stone-300
@@ -179,7 +179,7 @@ export default function Todo({setIsAuthenticated, isAuthenticated}: AuthProps) {
                                             block
                                             text-lime-200
                                             transition-colors duration-150
-                                            group-hover:text-stone-300
+                                            group-hover:text-lime-300
                                             group-active:hidden
                                             "
                                         />
@@ -188,7 +188,7 @@ export default function Todo({setIsAuthenticated, isAuthenticated}: AuthProps) {
                                         <Square
                                             className="
                                             hidden
-                                            text-lime-400
+                                            text-lime-300
                                             group-active:block
                                             "
                                         />
@@ -206,7 +206,7 @@ export default function Todo({setIsAuthenticated, isAuthenticated}: AuthProps) {
                                     {!todo.isStarred && (
                                         <>
                                         {/* Square – default */}
-                                        <Square
+                                        <SquareStar
                                             className="
                                             block
                                             text-stone-300
@@ -236,7 +236,7 @@ export default function Todo({setIsAuthenticated, isAuthenticated}: AuthProps) {
                                             block
                                             text-yellow-200
                                             transition-colors duration-150
-                                            group-hover:text-stone-300
+                                            group-hover:text-yellow-300
                                             group-active:hidden
                                             "
                                         />
@@ -245,7 +245,7 @@ export default function Todo({setIsAuthenticated, isAuthenticated}: AuthProps) {
                                         <Square
                                             className="
                                             hidden
-                                            text-yellow-400
+                                            text-yellow-300
                                             group-active:block
                                             "
                                         />
@@ -259,7 +259,7 @@ export default function Todo({setIsAuthenticated, isAuthenticated}: AuthProps) {
                                     className="cursor-pointer flex items-center gap-2 group"
                                     onClick={() => handleDeleteTodo(todo.id)}
                                 >
-                                    <Square className="block group-hover:hidden text-stone-300" />
+                                    <SquareX className="block group-hover:hidden text-stone-300" />
                                     <SquareX className="hidden group-hover:block text-red-300" />
                                 </div>
                             </div>
