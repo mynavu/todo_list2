@@ -145,11 +145,56 @@ export default function Todo({setIsAuthenticated, isAuthenticated}: AuthProps) {
                                     className="cursor-pointer flex items-center gap-2 group"
                                     onClick={() => handleToggleTodo(todo.id)}
                                 >
-                                    {todo.isCompleted ? (
-                                    <SquareCheck className="text-lime-200 transition-colors duration-150 group-hover:text-lime-400" />
-                                    ) : (
-                                    <Square className="text-stone-300 transition-colors duration-150 group-hover:text-lime-200" />
+                                    {/* NOT COMPLETED */}
+                                    {!todo.isCompleted && (
+                                        <>
+                                        {/* Square – default */}
+                                        <Square
+                                            className="
+                                            block
+                                            text-stone-300
+                                            transition-colors duration-150
+                                            group-hover:hidden
+                                            "
+                                        />
+
+                                        {/* Checked – on hover */}
+                                        <SquareCheck
+                                            className="
+                                            hidden
+                                            text-lime-200
+                                            transition-colors duration-150
+                                            group-hover:block
+                                            "
+                                        />
+                                        </>
                                     )}
+
+                                    {/* COMPLETED */}
+                                    {todo.isCompleted && (
+                                        <>
+                                        {/* Checked – default + hover */}
+                                        <SquareCheck
+                                            className="
+                                            block
+                                            text-lime-200
+                                            transition-colors duration-150
+                                            group-hover:text-stone-300
+                                            group-active:hidden
+                                            "
+                                        />
+
+                                        {/* Square – only while pressed */}
+                                        <Square
+                                            className="
+                                            hidden
+                                            text-lime-400
+                                            group-active:block
+                                            "
+                                        />
+                                        </>
+                                    )}
+
                                 </div>
 
                                 {/* TOGGLE STAR */}
@@ -157,11 +202,56 @@ export default function Todo({setIsAuthenticated, isAuthenticated}: AuthProps) {
                                     className="cursor-pointer flex items-center gap-2 group"
                                     onClick={() => handleStarTodo(todo.id)}
                                 >
-                                    {todo.isStarred ? (
-                                    <SquareStar className="text-yellow-200 transition-colors duration-150 group-hover:text-yellow-400" />
-                                    ) : (
-                                    <Square className="text-stone-300 transition-colors duration-150 group-hover:text-yellow-200" />
+                                    {/* NOT COMPLETED */}
+                                    {!todo.isStarred && (
+                                        <>
+                                        {/* Square – default */}
+                                        <Square
+                                            className="
+                                            block
+                                            text-stone-300
+                                            transition-colors duration-150
+                                            group-hover:hidden
+                                            "
+                                        />
+
+                                        {/* Starred – on hover */}
+                                        <SquareStar
+                                            className="
+                                            hidden
+                                            text-yellow-200
+                                            transition-colors duration-150
+                                            group-hover:block
+                                            "
+                                        />
+                                        </>
                                     )}
+
+                                    {/* COMPLETED */}
+                                    {todo.isStarred && (
+                                        <>
+                                        {/* Starred – default + hover */}
+                                        <SquareStar
+                                            className="
+                                            block
+                                            text-yellow-200
+                                            transition-colors duration-150
+                                            group-hover:text-stone-300
+                                            group-active:hidden
+                                            "
+                                        />
+
+                                        {/* Square – only while pressed */}
+                                        <Square
+                                            className="
+                                            hidden
+                                            text-yellow-400
+                                            group-active:block
+                                            "
+                                        />
+                                        </>
+                                    )}
+
                                 </div>
 
                                 {/* DELETE */}
@@ -178,21 +268,66 @@ export default function Todo({setIsAuthenticated, isAuthenticated}: AuthProps) {
                                     className="cursor-pointer flex items-center gap-2 group"
                                     onClick={() => handleShowDates(todo.id)}
                                 >
-                                    {todo.showDates ? (
-                                    <CalendarArrowDown className="text-sky-200 transition-colors duration-150 group-hover:text-sky-400" />
-                                    ) : (
-                                    <Calendar className="text-stone-300 transition-colors duration-150 group-hover:text-sky-200" />
+                                    {/* NOT COMPLETED */}
+                                    {!todo.showDates && (
+                                        <>
+                                        {/* Square – default */}
+                                        <Calendar
+                                            className="
+                                            block
+                                            text-stone-300
+                                            transition-colors duration-150
+                                            group-hover:hidden
+                                            "
+                                        />
+
+                                        {/* Checked – on hover */}
+                                        <CalendarArrowDown
+                                            className="
+                                            hidden
+                                            text-sky-200
+                                            transition-colors duration-150
+                                            group-hover:block
+                                            "
+                                        />
+                                        </>
                                     )}
+
+                                    {/* COMPLETED */}
+                                    {todo.showDates && (
+                                        <>
+                                        {/* Checked – default + hover */}
+                                        <CalendarArrowDown
+                                            className="
+                                            block
+                                            text-sky-200
+                                            transition-colors duration-150
+                                            group-hover:text-stone-300
+                                            group-active:hidden
+                                            "
+                                        />
+
+                                        {/* Square – only while pressed */}
+                                        <Calendar
+                                            className="
+                                            hidden
+                                            text-sky-400
+                                            group-active:block
+                                            "
+                                        />
+                                        </>
+                                    )}
+
                                 </div>
 
                             </div>
                         </div>
 
                         {/* TASK */}
-                        <div className="border-stone-300 border-2 rounded-sm p-2 -top-3.25 w-100 text-wrap flex flex-col relative">
-                            <span className="text-stone-300">{todo.task}
+                        <div className="border-stone-300 border-2 rounded-sm p-4 -top-3.25 w-100 text-wrap flex flex-col relative">
+                            <span className="text-stone-300 pt-1">{todo.task}
                             </span>
-                            <span className="text-xs ml-2 text-stone-400 text-wrap">
+                            <span className="text-xs ml-2 text-stone-400 text-wrap pt-1 ">
                             {todo.showDates && todo.dateCreated ? `Created on: ${formatDate(todo.dateCreated)}` : ''} {todo.showDates && todo.dateCompleted ? `| Completed on: ${formatDate(todo.dateCompleted)}` : ''}
                             </span>
                         </div>
