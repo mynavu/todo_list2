@@ -15,12 +15,12 @@ Minimalistic task tracker for activities and events with completion and starring
 Clone the repository and start the backend:
 ```bash
 git clone https://github.com/mynavu/todo_list2.git
-cd spring-react/backend
+cd ./spring-react/backend
 ./mvnw spring-boot:run
 ```
 In a separate terminal, start the frontend:
 ```bash
-cd spring-react/frontend
+cd ./spring-react/frontend
 npm install
 npm run dev
 ```
