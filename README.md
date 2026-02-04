@@ -11,6 +11,13 @@ Minimalistic task tracker for activities and events with completion and starring
 - Java
 - SpringBoot
 
+## Project Structure
+```
+demoapp/
+├── backend/ # (Spring Boot)
+└── frontend/ # (React + TypeScript)
+```
+
 ## Installation
 Clone the repository and start the backend:
 ```bash
